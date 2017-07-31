@@ -1,0 +1,114 @@
+---
+title: "Vad menas med formativ bedömning?"
+author: "Frank Bach, Åsa Rosander, Ann Zetterqvist, Eva West"
+date: "`r Sys.Date()`"
+bibliography: [BFL.bib, Mätning.bib]
+bibio-style: apalike
+documentclass: article
+link-citations: yes
+toc: no
+numbering: FALSE
+output:
+  bookdown::pdf_document2
+lang: sv
+abstract: "Här kommer det att skrivas en sammanfattning"
+---
+
+```{r setup, include=FALSE, warnings=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Inledning {-}
+Detta dokument behandlar en pilotstudie som gjordes i ett samarbete mellan lärare i Inför huvudstudien har en pilotstudie genomförts med 23 personer, i huvudsak verksamma lärare men också några rektorer. Text om hur allt har gått till och vad som behöver göras [@concannon_college_2010].
+
+# Bakgrund {-}
+Under de senaste tio åren har formativ bedömning introducerats av skolledare och lärare i svenska skolor. 
+
+# Metod {-}
+Arbetet inleddes med att genera ett stort antal påstående med utgångspunkt i både erfarenhet av och forskningslitteratur [@Saebjornsen:2016aa] om formativ bedömning
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study [@ming_beyond_2003]. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Deltagare {-}
+
+
+## Material {-}
+
+
+## Tillvägagångssätt {-}
+Inledningsvis formulerades en mängd påståenden om formativ bedömning så att företeelsen formativ bedömning täcktes så fullständigt som möjligt. Därefter studerades påståenden med avsikten att sortera bort påståenden som överlappade varandra. Efter denna process återstod 25 påståenden som utgjorde representerar för olika (subjektiva) uppfattningar om innebörden av formativ bedömning, till exempel ”Formativ bedömning innebär att eleven lär sig att planera och arbeta självständigt” (se tabell \ref{tab:statements}). Dessa påståenden (Q set) är ett urval av alla de möjliga påståenden som finns avseende formativ bedömning (concourse). Påståendena har konstruerats i en projektgrupp bestående av fem verksamma NO-lärare (åk 4-6) från olika skolor och fyra lärare/forskare från Göteborgs universitet, alla med erfarenheter av formativ bedömning, både i praktiken (använt i sin undervisning och undervisat om) och genom att ta del av litteratur inom området [@Balan:2014aa; @Jonsson:2013aa; @Lundahl:2014aa].
+
+```{r}
+library(readxl)
+statements <- read_excel("data/statements.xlsx")
+statements=as.data.frame(statements)
+```
+
+```{r statements, results = 'asis'}
+library(knitr)
+library(kableExtra)
+kable(statements, caption = "Påståenden att ta ställning till", escape = TRUE, booktabs = T, longtable = T) %>%
+  kable_styling(full_width = T, latex_options = c("hold_position", "repeat_header"), repeat_header_text = "(fortsättning)")
+```
+
+De skolverksamma lärarna har sedan organiserat tillfällen för kollegor och rektorer att utföra Q-sorteringar (Q-sorts) på sina skolor. Påståendena sorterades genom att deltagarna fick väga dem gentemot varandra enligt en standardiserad metod där påståendena sorters in i ett pyramidliknande schema där påstående rankas efter i vilken utsträckning personen ifråga håller med om påståendet i förhållande till andra påståenden [@yin_impact_2008].
+
+```{r schema, fig.cap="Schema för sortering av påståenden"}
+knitr::include_graphics("figs/pyramid.pdf")
+```
+
+## Analys {-}
+
+```{r import data}
+library(readxl)
+qsort <- read_excel("data/qsort.xlsx", 
+    sheet = "Blad1")
+qsort=as.data.frame(qsort)
+```
+
+```{r screeplot, fig.cap="Scree-diagram för oroterade faktorer som indikerar att fyra faktorer kan vara intressanta"}
+library(qmethod)
+screeplot(prcomp(qsort), main = "Scree-diagram för oroterade faktorer", type = "l")
+```
+
+Figur \ref{fig:screeplot} tyder på att det är lämpligt att analysera fyra faktorer. En faktoranalys genomförs [@Subba:2016aa]
+
+```{r qmethod, include=FALSE}
+library(qmethod)
+results=qmethod(qsort, nfactors = 4, rotation = "varimax")
+```
+
+
+# Resultat {-}
+De fyra faktorerna går att 
+
+
+```{r faktorer, echo=FALSE, fig.cap="Diagram över faktorer"}
+plot(results, xlab = "Z-poäng", ylab = "Påståenden", cex.axis = 0.75)  
+```  
+
+Diagrammet är konstruerat på så sätt att de påståenden där lärare som ger upphov till de fyra faktorerna skiljer sig mest åt återfinns överst i diagrammet, det vill säga till exempel för påstående 16: ”Formativ bedömning lämpar sig för skolämnen som har stor andel ’praktiska’ inslag, till exempel teknik, slöjd, hemkunskap och idrott.” Längst ner i diagrammet återfinns de påståenden där lärarna är mest överens, till exempel påstående 15: ”Formativ bedömning sker i huvudsak mellan läraren och hela elevgruppen.”, vilket värderas strax under 0. När det gäller påstående 8 är lärarna också relativt överens men detta håller de med om: ”Formativ bedömning ökar elevernas motivation.”  
+
+De fyra faktorerna representerar fyra huvudsakliga uppfattningar avseende formativ bedömning. Tiden har fram till nu inte medgivit en mer omfattande kvalitativ analys av faktorerna och sammanfattas därför mycket kort här:  
+
+1. Formativ bedömning handlar både om återkoppling till elever och till undervisning, formativ bedömning stressar varken lärare eller elever och ökar inte konkurrensen.
+
+2. Formativ bedömning handlar mest om återkoppling till eleven för att eleven ska veta vad eleven ska förbättra sitt lärande och ta eget ansvar. Ökar elevens motivation och självförtroende. Formativ bedömning handlar inte så mycket om att samla information i syfte om att förändra undervisningen,
+
+3. Lämpar sig för praktiska ämnen. Formativ bedömning handlar om att eleven lär sig arbeta självständigt och ökar elevens motivation. Hjälper också läraren att sätta betyg. Formativ bedömning handlar inte om att förbättra undervisning eller att ge återkoppling till eleven vad en är bra på. Inte heller en fråga mellan enskild lärare och elev.
+
+4. Formativ bedömning handlar om återkoppling till undervisning både i det korta och långa perspektivet. Eleven lär sig inte att arbeta självständigt. Gynnar inte lågpresterande elever. Inte en fråga mellan enskild elev och lärare.
+
+I figur 2 visas z-värdena för de olika faktorerna.
+Vid en uppföljande träff med de skolverksamma lärare som ingår i projektgruppen beskrevs att redan själva Q-sorteringen hade väckt entusiasm både bland rektorer och kollegor och dessutom bidragit till en intensiv diskussion efteråt. Resultatet från pilotstudien har sedan diskuterats i hela projektgruppen och lett fram till den design som används i huvudstudien, där även en Q-sortering med elever kommer att utvecklas och genomföras [@gustafsson_effects_2008].
+
+# Diskussion {-}
+
+
+\newpage
+
+# Referenser {-}
+
+\noindent\setlength{\leftskip}{14pt}
+\setlength{\parindent}{-14pt}
+\setlength{\parskip}{4pt}
