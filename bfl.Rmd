@@ -2,7 +2,7 @@
 title: "Vad menas med formativ bedömning?"
 author: "Frank Bach, Åsa Rosander, Ann Zetterqvist, Eva West"
 date: "`r Sys.Date()`"
-bibliography: [BFL.bib, Mätning.bib]
+bibliography: [referenser/BFL.bib, referenser/Mätning.bib]
 bibio-style: apalike
 documentclass: article
 link-citations: yes
