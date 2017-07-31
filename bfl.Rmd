@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 # Inledning {-}
-Detta dokument behandlar en pilotstudie som gjordes i ett samarbete mellan lärare i Inför huvudstudien har en pilotstudie genomförts med 23 personer, i huvudsak verksamma lärare men också några rektorer. Text om hur allt har gått till och vad som behöver göras [@concannon_college_2010]. Nu ska det testas hur det blir om jag uppdaterar filen med ett annat program.
+Detta dokument behandlar en pilotstudie som gjordes i ett samarbete mellan lärare i Inför huvudstudien har en pilotstudie genomförts med 23 personer, i huvudsak verksamma lärare men också några rektorer. Text om hur allt har gått till och vad som behöver göras [@concannon_college_2010]. Nu ska det testas hur det blir om jag uppdaterar filen med ett annat program. Undrar om citationstecknen ändrar sig igen...
 
 # Bakgrund {-}
 Under de senaste tio åren har formativ bedömning introducerats av skolledare och lärare i svenska skolor. 
