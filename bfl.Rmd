@@ -80,7 +80,7 @@ results=qmethod(qsort, nfactors = 4, rotation = "varimax")
 
 
 # Resultat {-}
-De fyra faktorerna går att 
+De fyra faktorerna går att studera i ett diagram:
 
 
 ```{r faktorer, echo=FALSE, fig.cap="Diagram över faktorer"}
