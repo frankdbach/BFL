@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 # Inledning {-}
-Detta dokument behandlar en pilotstudie som gjordes i ett samarbete mellan lärare i Inför huvudstudien har en pilotstudie genomförts med 23 personer, i huvudsak verksamma lärare men också några rektorer. Text om hur allt har gått till och vad som behöver göras [@concannon_college_2010].
+Detta dokument behandlar en pilotstudie som gjordes i ett samarbete mellan lärare i Inför huvudstudien har en pilotstudie genomförts med 23 personer, i huvudsak verksamma lärare men också några rektorer. Text om hur allt har gått till och vad som behöver göras [@concannon_college_2010]. Nu ska det testas hur det blir om jag uppdaterar filen med ett annat program.
 
 # Bakgrund {-}
 Under de senaste tio åren har formativ bedömning introducerats av skolledare och lärare i svenska skolor. 
@@ -44,7 +44,7 @@ statements <- read_excel("data/statements.xlsx")
 statements=as.data.frame(statements)
 ```
 
-```{r statements, results = 'asis'}
+```{r statements, results = &#39;asis&#39;}
 library(knitr)
 library(kableExtra)
 kable(statements, caption = "Påståenden att ta ställning till", escape = TRUE, booktabs = T, longtable = T) %>%
@@ -53,7 +53,7 @@ kable(statements, caption = "Påståenden att ta ställning till", escape = TRUE
 
 De skolverksamma lärarna har sedan organiserat tillfällen för kollegor och rektorer att utföra Q-sorteringar (Q-sorts) på sina skolor. Påståendena sorterades genom att deltagarna fick väga dem gentemot varandra enligt en standardiserad metod där påståendena sorters in i ett pyramidliknande schema där påstående rankas efter i vilken utsträckning personen ifråga håller med om påståendet i förhållande till andra påståenden [@yin_impact_2008].
 
-```{r schema, fig.cap="Schema för sortering av påståenden"}
+```{r schema, fig.cap=&quot;Schema för sortering av påståenden&quot;}
 knitr::include_graphics("figs/pyramid.pdf")
 ```
 
@@ -66,7 +66,7 @@ qsort <- read_excel("data/qsort.xlsx",
 qsort=as.data.frame(qsort)
 ```
 
-```{r screeplot, fig.cap="Scree-diagram för oroterade faktorer som indikerar att fyra faktorer kan vara intressanta"}
+```{r screeplot, fig.cap=&quot;Scree-diagram för oroterade faktorer som indikerar att fyra faktorer kan vara intressanta&quot;}
 library(qmethod)
 screeplot(prcomp(qsort), main = "Scree-diagram för oroterade faktorer", type = "l")
 ```
@@ -83,9 +83,9 @@ results=qmethod(qsort, nfactors = 4, rotation = "varimax")
 De fyra faktorerna går att studera i ett diagram:
 
 
-```{r faktorer, echo=FALSE, fig.cap="Diagram över faktorer"}
+```{r faktorer, echo=FALSE, fig.cap=&quot;Diagram över faktorer&quot;}
 plot(results, xlab = "Z-poäng", ylab = "Påståenden", cex.axis = 0.75)  
-```  
+```
 
 Diagrammet är konstruerat på så sätt att de påståenden där lärare som ger upphov till de fyra faktorerna skiljer sig mest åt återfinns överst i diagrammet, det vill säga till exempel för påstående 16: ”Formativ bedömning lämpar sig för skolämnen som har stor andel ’praktiska’ inslag, till exempel teknik, slöjd, hemkunskap och idrott.” Längst ner i diagrammet återfinns de påståenden där lärarna är mest överens, till exempel påstående 15: ”Formativ bedömning sker i huvudsak mellan läraren och hela elevgruppen.”, vilket värderas strax under 0. När det gäller påstående 8 är lärarna också relativt överens men detta håller de med om: ”Formativ bedömning ökar elevernas motivation.”  
 
